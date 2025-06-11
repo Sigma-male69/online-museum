@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online museum – GIP Onepager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #000;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        header {
+            background-color: #0066ff;
+            color: #fff;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .burger {
+            height: 100%;
+            width: 100%;
+            width: 300px;
+
+        }
+
+        .inleiding-flex {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            padding: 2rem;
+        }
+
+        .inleiding-flex .tekst {
+            flex: 2;
+            min-width: 0;
+        }
+
+        .inleiding-flex .afbeelding {
+            flex: 1;
+            max-width: 400px;
+            position: sticky;
+            /* optioneel, blijft mee scrollen */
+            top: 2rem;
+        }
+
+        .inleiding-flex img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        /* Mobiel: onder elkaar */
+        @media (max-width: 768px) {
+            .inleiding-flex {
+                flex-direction: column;
+            }
+
+            .inleiding-flex .afbeelding {
+                max-width: 100%;
+                position: static;
+            }
+        }
+
+        .flex-buiten-kader {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: none;
+            padding: 2rem 3rem;
+            margin: 2rem auto;
+            background: none;
+            border: none;
+            box-shadow: none;
+        }
+
+        .flex-buiten-kader .tekst {
+            flex: 1;
+            max-width: 600px;
+            color: #e0e0e0;
+        }
+
+        .flex-buiten-kader .afbeelding {
+            flex: 0 0 300px;
+        }
+
+        .flex-buiten-kader img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: flex;
+        }
+
+        .doel-flex {
+            flex-direction: row-reverse;
+        }
+
+        /* Mobiel: stapelen */
+        @media (max-width: 768px) {
+            .flex-buiten-kader {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+
+            .flex-buiten-kader .afbeelding {
+                margin-left: 0;
+                margin-top: 1rem;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .flex-buiten-kader .tekst {
+                max-width: 100%;
+            }
+        }
+
+
+
+
+
+        .section {
+            background-color: #1a1a1a;
+            border-left: 5px solid #0066ff;
+            padding: 2rem;
+            margin: 2rem auto;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 102, 255, 0.15);
+            max-width: 1000px;
+        }
+
+        .section h2 {
+            color: #3399ff;
+            margin-bottom: 1rem;
+        }
+
+        .section p {
+            text-align: justify;
+            font-size: 1.05rem;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            max-width: 800px;
+            height: 300px;
+            background-color: #333;
+            border: 2px dashed #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            margin: 1.5rem auto;
+            border-radius: 10px;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #111;
+            padding: 1rem;
+            font-size: 0.95rem;
+            color: #aaa;
+            margin-top: 4rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                margin: 1.5rem 1rem;
+                padding: 1.5rem;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Online museum</h1>
+        <p>Geïntegreerde Proef – door Wanne</p>
+    </header>
+
+    <section class="section">
+        <h2>📘 Voorwoord</h2>
+        <p>
+            Voor u ligt mijn GIP-project voor Limburg Stemt Af, waarin ik een gedigitaliseerd museum heb ontwikkeld dat
+            werkt via QR-codes. Dit project is tot stand gekomen dankzij dhr. F. Meyers, die onze klas inschreef voor
+            Limburg Stemt Af. <br><br>
+
+            Limburg Stemt Af is een initiatief waarbij scholen uit heel Limburg de kans krijgen om een STEM-project uit
+            te werken. Elke school krijgt hiervoor ongeveer een half jaar de tijd (afhankelijk van het startmoment). Het
+            doel is om een boeiend en origineel project te ontwikkelen dat aansluit bij STEM (Science, Technology,
+            Engineering, Mathematics). Het is geen competitie waarin prijzen te winnen zijn, maar eerder een gezellige
+            bijeenkomst waarin leerlingen hun creativiteit en technische vaardigheden kunnen tonen en STEM in de kijker
+            wordt gezet. <br><br>
+
+            Voor ons project werkten we samen met dhr. J. Conincx en mevr. J. Hoeks van het Grevenbroekmuseum. Zij gaven
+            aan dat het handig zou zijn als het museum digitaal beschikbaar zou zijn — iets dat het beheer en de
+            toegankelijkheid zou verbeteren. Vanuit die vraag zijn we gestart met de ontwikkeling van een online
+            museumplatform. <br><br>
+
+            Het concept is eenvoudig maar krachtig: een gebruiksvriendelijke webpagina waarop museumstukken digitaal
+            worden voorgesteld. Bezoekers kunnen via QR-codes die bij de fysieke voorwerpen geplaatst zijn, rechtstreeks
+            toegang krijgen tot de bijhorende informatie op de website. Zo wordt elk werkstuk overzichtelijk,
+            interactief en makkelijk raadpleegbaar.
+        </P>
+    </section>
+
+
+    <div class="section inleiding-flex">
+        <div class="tekst">
+            <h2>🎯 Inleiding</h2>
+            <p>
+                Een van de grootste uitdagingen waar het museum mee kampte, was het gebrek aan bekendheid. We merkten
+                dat er weinig bezoekers waren en dat de interesse vanuit het grote publiek beperkt bleef. Veel mensen
+                wisten niet eens van het bestaan van het Grevenbroekmuseum af, laat staan dat ze de moeite namen om het
+                te bezoeken. Daarom gingen we op zoek naar een manier om het museum aantrekkelijker en toegankelijker te
+                maken, vooral voor een jonger en technischer publiek. Al snel kwamen we tot het idee om ICT in te zetten
+                als oplossing. <br><br>
+
+                De gedachte hierachter was eenvoudig: als mensen niet naar het museum willen komen, dan brengen wij het
+                museum naar hen toe. Door het digitaliseren van de museumstukken wilden we de collectie breder
+                toegankelijk maken — op school, thuis of zelfs onderweg. Zo kan iedereen het museum op zijn of haar
+                eigen tempo en op elk moment bezoeken via een smartphone, tablet of computer. <br><br>
+
+                Om dit technisch mogelijk te maken, kozen we ervoor om te werken met een database. Aangezien we te maken
+                hadden met heel wat data, zoals teksten, foto's en metadata over de werken, was het noodzakelijk om die
+                op een efficiënte manier te kunnen opslaan, beheren en opvragen. MySQL bleek hiervoor de ideale keuze.
+                Daarnaast gebruikten we verschillende programmeertalen en technologieën zoals PHP, HTML, CSS, JavaScript
+                en Bootstrap. Door deze tools slim met elkaar te combineren, konden we een goed werkend en visueel
+                aantrekkelijk digitaal museum bouwen. <br><br>
+
+                Toch draaide dit project niet alleen om de technische werking. Minstens even belangrijk was het
+                ontwikkelen van een gebruiksvriendelijke interface. We wilden een website maken die intuïtief en
+                eenvoudig te bedienen is, ook voor mensen met weinig digitale ervaring. Denk bijvoorbeeld aan oudere
+                bezoekers van het museum: zij moeten zonder hulp kunnen navigeren en informatie raadplegen. Alleen dan
+                is het systeem echt geslaagd in zijn opzet. <br><br>
+
+                Daarnaast hebben we ook een aparte beheermodule ontwikkeld: de admin-pagina. Deze maakt het voor de
+                beheerders van het museum mogelijk om met slechts een paar klikken nieuwe werken toe te voegen of
+                bestaande teksten aan te passen. Je hoeft niet technisch onderlegd te zijn: met een beetje tikken op je
+                toetsenbord en enkele muisklikken kun je vanuit je eigen zetel het volledige digitale museum beheren.
+                Dit verlaagt de drempel voor onderhoud en updates aanzienlijk, waardoor het systeem ook op lange termijn
+                bruikbaar en relevant blijft. <br><br>
+
+                Kortom, ons project combineert technologie, gebruiksvriendelijkheid en educatief nut om een eeuwenoud
+                museum nieuw leven in te blazen — digitaal, laagdrempelig en toekomstgericht.
+
+            </p>
+        </div>
+        <div class="afbeelding">
+            <img src="./img/museum foto.png" alt="burger" class="burger" />
+        </div>
+    </div>
+
+
+
+    <section class="section row">
+        <h2>❗ Probleemstelling</h2>
+        <div class="card bg-black border border-4 border-primary text-white col">
+            <div class="card-body text-white">
+                <h4 class="card-title text-primary" style="text-align: center;">Vraagstelling</h4>
+                <p class="card-text ">Zoals eerder vermeld, kampte het museum met een groot probleem: het trok te weinig
+                    bezoekers aan omdat het simpelweg niet aantrekkelijk of bekend genoeg was. Er moest dus dringend een
+                    oplossing komen om het museum opnieuw onder de aandacht te brengen. <br><br>
+
+                    Aangezien de heer F. Meyers onze school had ingeschreven voor Limburg Stemt Af, vond hij dit de
+                    ideale gelegenheid om het museum als uitgangspunt te nemen voor ons project. Samen zijn we gaan
+                    nadenken over mogelijke oplossingen om het museum te moderniseren en aantrekkelijker te maken voor
+                    een breder publiek. Uiteindelijk kwamen we tot het idee om een interactieve webpagina te
+                    ontwikkelen. Op die manier kunnen bezoekers niet alleen fysiek, maar ook digitaal kennismaken met
+                    het museum. Dat is in deze tijd, waarin digitale toegankelijkheid steeds belangrijker wordt, een
+                    enorme meerwaarde. <br><br>
+
+                    Wat dit project echt bijzonder maakte, was de visie van dhr. Meyers. Hij denkt altijd innovatief en
+                    vooruitstrevend. In plaats van vast te houden aan wat traditioneel of vertrouwd is, moedigt hij ons
+                    aan om buiten de lijntjes te denken. Volgens hem moeten we niet enkel leren wat de school
+                    voorschrijft, maar vooral leren hoe we zelf creatieve oplossingen bedenken, net zoals we dat later
+                    op de arbeidsmarkt ook zullen moeten doen. <br><br>
+
+                    Hij zegt het vaak en terecht: “Jullie hebben het hele internet tot jullie beschikking, dus gebruik
+                    het ook. Ga op zoek, probeer, experimenteer en leer.” In plaats van simpelweg de bekende tools te
+                    gebruiken, stimuleerde hij ons om zelf nieuwe ideeën te verzinnen en deze tot in de puntjes uit te
+                    werken. Die vrijheid en aanmoediging hebben ervoor gezorgd dat we ons volledig konden uitleven in
+                    dit project. En wat we gevonden hebben, was inderdaad niet alleen leerzaam, maar ook bijzonder leuk.
+
+                </p>
+            </div>
+        </div>
+        <div class="card bg-black border border-4 border-primary text-white col" style="margin-left: 10px;">
+            <div class="card-body text-white">
+                <h4 class="card-title text-primary" style="text-align: center;">online museum</h4>
+                <p class="card-text ">Voor de ontwikkeling van ons digitale museum kozen we ervoor om een
+                    gebruiksvriendelijk online platform te creëren dat nauw samenwerkt met een databank. Dit platform
+                    stelt ons in staat om op een efficiënte manier informatie te beheren, zoals het toevoegen,
+                    verwijderen of aanpassen van gegevens over de tentoongestelde objecten of werkstukken. Op die manier
+                    kunnen beheerders het museum dynamisch en up-to-date houden, zonder dat daar technische kennis voor
+                    nodig is. <br><br>
+
+                    Voor het beheer van onze database maakten we gebruik van TablePlus – een krachtige tool waarmee we
+                    overzichtelijk en intuïtief tabellen kunnen aanmaken, bewerken en beheren. Deze tool biedt een
+                    visuele interface, wat het ideaal maakt voor zowel ontwikkelaars als begeleiders zonder veel
+                    ervaring met databases. Zo kunnen begeleiders eenvoudig nieuwe gegevens invoeren of bestaande data
+                    aanpassen, zonder te moeten werken met complexe SQL-commando’s. <br><br>
+
+                    Daarnaast maakten we ook gebruik van API’s (Application Programming Interfaces). Deze API’s speelden
+                    een belangrijke rol bij het genereren van QR-codes. Elke QR-code verwijst naar een specifieke pagina
+                    binnen onze webapplicatie, afhankelijk van welk werkstuk of thema eraan gekoppeld is. Wanneer een
+                    bezoeker zo’n code scant, wordt hij of zij automatisch doorgestuurd naar de juiste digitale
+                    presentatie van het object. <br><br>
+
+                    De QR-functionaliteit maakt ons project niet alleen interactiever, maar verlaagt ook de drempel om
+                    informatie op te zoeken. Bezoekers hoeven enkel hun smartphone te gebruiken om direct toegang te
+                    krijgen tot een rijkere museumervaring. De API fungeert hier als brug tussen onze eigen programmatie
+                    (de museumapplicatie) en de externe dienst die de QR-codes genereert. <br><br>
+
+                    Dankzij deze combinatie van een online databank, een webapplicatie en slimme integraties via API’s
+                    hebben we een modern en toekomstgericht platform kunnen ontwikkelen dat zowel praktisch inzetbaar is
+                    als technisch leerzaam voor ons als makers.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section flex-buiten-kader doel-flex">
+        <div class="tekst">
+            <h2>🎯 Doel</h2>
+            <p>
+                Het hoofddoel van dit project was tweeledig: enerzijds wilden we meer bezoekers aantrekken naar het Van
+                Grevenbroekmuseum, anderzijds wilden we als leerlingen onze technische kennis uitbreiden en toepassen in
+                een realistische context. Door een interactieve en toegankelijke webpagina te ontwikkelen, mikten we
+                erop het museum een moderne en dynamische uitstraling te geven die zowel jong als oud aanspreekt. Op die
+                manier brengen we het erfgoed dichter bij het publiek, zonder dat men fysiek aanwezig hoeft te zijn.
+                <br><br>
+
+                Daarnaast was dit project ook opgezet met het oog op de deelname aan Limburg Stem[t] Af. Deze
+                bijeenkomst van scholen uit de hele provincie is bedoeld om STEM-initiatieven in de kijker te zetten en
+                jonge makers te inspireren. Het was voor ons dan ook belangrijk om iets te creëren waar we trots op
+                konden zijn – een project dat niet alleen technisch in orde is, maar ook maatschappelijk relevant.
+                <br><br>
+
+                Met onze digitale museumoplossing wilden we dus niet alleen een probleem oplossen voor het museum zelf,
+                maar ook laten zien wat er mogelijk is wanneer je technologie creatief inzet. Het resultaat is een
+                platform dat uitnodigt tot ontdekken, zowel voor bezoekers als voor onszelf als ontwikkelaars.
+            </p>
+        </div>
+        <div class="afbeelding" style="margin-right: 10px;">
+            <img src="./img/scannen.png" alt="verkopen" class="burger" />
+        </div>
+    </div>
+
+
+    <section class="section">
+        <h2>🛠️ Plan van aanpak</h2>
+        <p>Een goed plan van aanpak was essentieel voor dit project, vooral omdat er veel technische functionaliteit aan
+            verbonden is. Zonder een gestructureerde werkwijze zou het risico op fouten groot zijn en zou het overzicht
+            al snel verloren gaan. Daarom heb ik op voorhand nagedacht over een logische en efficiënte opbouw voor het
+            realiseren van mijn online webpagina. <br><br>
+
+            De eerste stap was het ontwikkelen van een gebruiksvriendelijke interface. Deze moest intuïtief en
+            overzichtelijk zijn, zodat ook de beheerders van het museum – die misschien minder vertrouwd zijn met
+            digitale systemen – er zonder problemen mee aan de slag konden. Centraal in deze interface kwam een tabel
+            waarin alle gegevens van de verschillende werkstukken duidelijk weergegeven werden. Denk hierbij aan
+            informatie zoals titel, beschrijving, auteur en datum van aanmaak. <br><br>
+
+            Zodra deze basis er stond, ben ik begonnen met het implementeren van kleinere functionaliteiten. Een van de
+            eerste toevoegingen was de mogelijkheid om een kunstwerk (of tabelrij) te dupliceren. Dit was technisch
+            gezien relatief eenvoudig, aangezien dit slechts het uitvoeren van een SQL-query vergde en het genereren van
+            een nieuw ID. <br><br>
+
+            Nadat deze kleinere functies goed werkten, begon ik aan de meer complexe onderdelen van het project. Zo
+            moest het mogelijk worden om bestaande kunstwerken aan te passen en nieuwe toe te voegen. Daarnaast
+            ontwikkelde ik een gezamenlijke webpagina waarop alle gegevens getoond kunnen worden aan bezoekers. <br><br>
+
+            Tot slot ben ik aan de slag gegaan met het integreren van een API om QR-codes te genereren. Elke QR-code
+            verwijst naar de bijhorende pagina van een kunstwerk. Op die manier kunnen bezoekers via hun smartphone snel
+            en eenvoudig extra informatie opvragen – een moderne oplossing die perfect aansluit bij de digitalisering
+            van het museum. <br><br>
+
+            Deze gestructureerde aanpak zorgde ervoor dat het project overzichtelijk bleef en dat elke stap logisch
+            voortvloeide uit de vorige.
+        </p>
+    </section>
+
+    <div class="section flex-buiten-kader realisatie-flex">
+        <div class="tekst">
+            <h2>⚙️ Realisatie</h2>
+            <p>
+                Dankzij een doordacht en efficiënt plan van aanpak kon ik dit project op een zeer gestructureerde manier
+                uitwerken. Elke stap werd zorgvuldig voorbereid en uitgevoerd, waardoor ik functie per functie kon
+                implementeren zonder dat onderdelen door elkaar liepen of elkaar in de weg zaten. Mijn werkwijze was
+                eenvoudig maar doeltreffend: ik werkte elke stap volledig af tot alles correct functioneerde, en pas
+                daarna ging ik over naar de volgende uitdaging. <br><br>
+
+                Deze gestructureerde aanpak leverde niet alleen rust in mijn werkwijze op, maar maakte het ook mogelijk
+                om elk probleem logisch te benaderen. Wanneer er zich een obstakel voordeed, ging ik stap voor stap op
+                zoek naar een passende oplossing. Zo wist ik altijd waar ik stond in het proces, en bleef het overzicht
+                bewaard. <br><br>
+
+                De eerste fase van het project bestond uit het ontwerpen en opbouwen van de gebruikersinterface. Na wat
+                finetuning was deze volledig klaar. Alle werkstukken werden overzichtelijk weergegeven, er stond al een
+                kolom klaar voor de QR-codes en ook de benodigde knoppen waren voorzien. Op dat moment ontbrak enkel nog
+                de achterliggende functionaliteit. <br><br>
+
+                Maar dit was geen groot obstakel, want dankzij de duidelijke structuur kon ik deze functies één voor één
+                toevoegen. Ik begon met de eenvoudige functionaliteiten, zoals het verwijderen en dupliceren van
+                werkstukken. Elke knop kreeg een specifieke functie toegewezen die ik zorgvuldig testte en
+                optimaliseerde. <br><br>
+
+                Nadat deze basisfuncties goed werkten, was het tijd om de complexere onderdelen aan te pakken. Dit
+                betrof onder andere het bewerken van bestaande QR-codes en het automatisch genereren ervan via een
+                externe API. Tot slot realiseerde ik ook een gedeelde webpagina waarop de gegevens van het werkstuk
+                worden weergegeven, afhankelijk van welke QR-code de bezoeker scant. <br><br>
+
+                Deze gestructureerde werkwijze was onmisbaar voor het succesvol afronden van het project. Ze bood niet
+                alleen overzicht en controle, maar maakte het ook mogelijk om telkens een stapje verder te gaan in de
+                technische uitwerking.
+            </p>
+        </div>
+        <div class="afbeelding">
+            <img src="./img/werkstuk bekijken.png" alt="eten" class="burger" />
+        </div>
+    </div>
+
+
+    <section class="section">
+        <h2 class="text-center">🧪 Softwares</h2>
+
+        <div id="projectAccordion">
+            <div class="mb-2">
+                <button class=" btn btn-outline-primary w-100 py-3" data-bs-toggle="collapse"
+                    data-bs-target="#collapseProject1" style="text-align: center;">
+                    HTML5 & CSS3
+                </button>
+                <div id="collapseProject1" class="collapse" data-bs-parent="#projectAccordion">
+                    <div class="card card-body text-black">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <img src="./img/Html 5 CSS 3.png" class="img-fluid rounded mb-3"
+                                    alt="Slimme Weegschaal">
+                            </div>
+                            <div class="col-md-8">
+                                We maken gebruik van HTML, de standaardtaal voor het opbouwen van webpagina’s. Met CSS
+                                zorgen we ervoor dat de pagina er aantrekkelijk en gebruiksvriendelijk uitziet. Zonder
+                                styling zou de site er erg saai uitzien, maar dankzij een doordachte vormgeving oogt
+                                alles veel netter en moderner. Hiermee hebben we de basisstructuur van de website
+                                opgebouwd. Vanuit die fundering zijn we verder gegaan met het toevoegen van de
+                                functionaliteiten, die we koppelen via andere programmeertalen.<br>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="mb-2">
+                <button class="btn btn-outline-primary w-100 py-3" data-bs-toggle="collapse"
+                    data-bs-target="#collapseProject3" style="text-align: center;">
+                    Bootstrap 5
+                </button>
+                <div id="collapseProject3" class="collapse" data-bs-parent="#projectAccordion">
+                    <div class="card card-body text-black">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <img src="./img/bootstrap 5.png" class="img-fluid rounded mb-3" alt="Slimme Weegschaal">
+                            </div>
+                            <div class="col-md-8">
+                                <p>
+                                    Bootstrap wordt in dit project gebruikt om het platform dynamischer en
+                                    gebruiksvriendelijker te maken. Dankzij de uitgebreide set van ingebouwde
+                                    componenten en stijlen die Bootstrap biedt, kunnen we op een efficiënte manier een
+                                    aantrekkelijke en responsieve gebruikersinterface creëren.
+                                    Met behulp van vooraf gedefinieerde CSS-classes kunnen we eenvoudig elementen zoals
+                                    knoppen, navigatiebalken, formulieren en lay-outs vormgeven, zonder dat we telkens
+                                    alles zelf hoeven te coderen. Dit bespaart niet alleen tijd, maar zorgt er ook voor
+                                    dat onze webpagina er professioneel en consistent uitziet op verschillende apparaten
+                                    en schermformaten.
+                                    Kortom, Bootstrap biedt ons de mogelijkheid om onze website zowel visueel
+                                    aantrekkelijk als technisch solide te maken, met minimale inspanning en maximale
+                                    flexibiliteit.</p>
+
+                                <br>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mb-2">
+                <button class="btn btn-outline-primary w-100 py-3" data-bs-toggle="collapse"
+                    data-bs-target="#collapseProject6" style="text-align: center;">
+                    JavaScript
+                </button>
+                <div id="collapseProject6" class="collapse" data-bs-parent="#projectAccordion">
+                    <div class="card card-body text-black">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <img src="./img/Javascript.png" class="img-fluid rounded mb-3" alt="Slimme Weegschaal">
+                            </div>
+                            <div class="col-md-8">
+                                <p>
+                                    We gebruiken JavaScript om de verbinding te leggen tussen de frontend en de backend
+                                    van
+                                    onze webapplicatie. Dankzij JavaScript kunnen we de gegevens die beheerders
+                                    aanpassen
+                                    op
+                                    de website actief verwerken en doorsturen naar de server, waar ze verder worden
+                                    afgehandeld.</p>
+                                <p>
+
+                                    Dit gebeurt via een AJAX-call: een techniek waarmee we gegevens asynchroon kunnen
+                                    verzenden, zonder dat de hele pagina opnieuw moet laden. Bij zo’n verzoek geven we
+                                    een
+                                    aantal belangrijke parameters mee, zoals de data die moet worden verstuurd, het
+                                    datatype
+                                    (bijvoorbeeld JSON), de gebruikte methode (zoals POST of GET) en de URL waar het
+                                    verzoek
+                                    naartoe moet.</p>
+                                <p>
+
+                                    Door deze instellingen correct te configureren, zorgen we ervoor dat de informatie
+                                    die
+                                    aan de voorkant wordt aangepast — zoals naam van het werkstuk of de beschrijving —
+                                    vlot en
+                                    veilig terechtkomt bij de backend, waar ze verder wordt verwerkt en opgeslagen in de
+                                    database.</p>
+
+                                <br>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mb-2">
+                <button class="btn btn-outline-primary w-100 py-3" data-bs-toggle="collapse"
+                    data-bs-target="#collapseProject4" style="text-align: center;">
+                    PHP
+                </button>
+                <div id="collapseProject4" class="collapse" data-bs-parent="#projectAccordion">
+                    <div class="card card-body text-black">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <img src="./img/php.png" class="img-fluid rounded mb-3" alt="Slimme Weegschaal">
+                            </div>
+                            <div class="col-md-8">
+                                <p>
+                                    We gebruiken PHP als programmeertaal voor de backend van onze webapplicatie. Alle
+                                    gegevens die via JavaScript vanaf de frontend worden doorgestuurd, worden in de
+                                    backend
+                                    verder verwerkt met PHP. Ook zorgt PHP er voor dat we connectie kunnen maken met de
+                                    database.</p>
+                                <p>
+
+                                    Denk bijvoorbeeld aan informatie zoals een aanpassing aan de naam, de tijd of de
+                                    foto.
+                                    Wanneer een beheerder iets aanpast, gebruiken we PHP om deze ingevoerde
+                                    gegevens te verwerken met onze database. Eerst moeten we het foutieve uit de
+                                    database halen om dan het correcte er weer in te steken</p>
+                                <p>
+
+                                    PHP speelt dus een centrale rol in de communicatie tussen de website en de database.
+                                    Dankzij deze taal kunnen we logica toevoegen aan onze applicatie, zoals
+                                    gebruikersauthenticatie, het opslaan van data en het controleren van invoer.
+                                    Zo
+                                    wordt onze website niet alleen interactief, maar ook veilig en betrouwbaar in
+                                    gebruik.</p><br>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mb-2">
+                <button class="btn btn-outline-primary w-100 py-3" data-bs-toggle="collapse"
+                    data-bs-target="#collapseProject5" style="text-align: center;">
+                    MySQL
+                </button>
+                <div id="collapseProject5" class="collapse" data-bs-parent="#projectAccordion">
+                    <div class="card card-body text-black">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <img src="./img/MySQL.png" class="img-fluid rounded mb-3" alt="Slimme Weegschaal">
+                            </div>
+                            <div class="col-md-8">
+                                <p>
+                                    We gebruiken MySQL om te communiceren met de database. Dankzij deze taal kunnen we
+                                    gegevens opvragen, bewerken, toevoegen of verwijderen uit de databank. Dit doen we
+                                    met
+                                    behulp van zogenaamde query’s — opdrachten die we naar de database sturen.</p>
+                                <p>
+
+                                    Je kan een query zien als een vraag aan de database, zoals: "Hallo, ik zou graag
+                                    alle
+                                    titels willen uit de tabel werkstukken." De database verwerkt deze vraag
+                                    en
+                                    geeft vervolgens de gevraagde data terug. Via PHP kunnen we die data dan verder
+                                    verwerken, bijvoorbeeld om de informatie te verwerken en dan terug te sturen.</p>
+                                <p>
+
+                                    SQL is dus een cruciale bouwsteen binnen ons project. Zonder deze taal zouden we
+                                    niet in
+                                    staat zijn om efficiënt met de database te werken, en zou het hele systeem van
+                                    gebruikersvriendelijkheid en dataverwerking niet mogelijk zijn geweest.</p><br>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>🔧 Technische uitleg</h2>
+
+        <h3 style="text-align: center; color: #0066ff;">Video:</h3>
+        <video width="100%" controls class="mb-4 rounded shadow-sm">
+            <source src="./video/Museum Login - Google Chrome - 21 May 2025.mp4" type="video/mp4" />
+            Je browser ondersteunt deze video niet.
+        </video>
+
+        <h3 style="color: #0066ff;">Uitleg</h3>
+        <p>
+            Hier kun je je technische uitleg schrijven: bijvoorbeeld hoe de database is opgezet, hoe de PHP-logica
+            werkt, welke beveiligingsmaatregelen zijn genomen, en hoe de verschillende onderdelen samenwerken.
+        </p>
+
+        <h3 style="color: #0066ff;">Screenshots / Foto's technische details</h3>
+        <div class="row g-3">
+            <div class="col-12 col-md-4 text-center">
+                <figure>
+                    <img src="./img/database verbinding.png" alt="Technische screenshot 1"
+                        class="img-fluid rounded shadow-sm" />
+                    <figcaption class="mt-2 " style="font-size: 0.9rem;">In dit project wordt er verbinding gemaakt met
+                        een externe MySQL-database via PHP. Door middel van een veilige verbinding met een opgegeven
+                        serveradres, gebruikersnaam, wachtwoord en databasenaam kan er op een betrouwbare manier met de
+                        databank gecommuniceerd worden. Deze verbinding vormt de basis voor het opslaan en ophalen van
+                        gegevens binnen het systeem. <br><br>
+
+                        Daarnaast is er een functie geïntegreerd die unieke identificatiecodes (UUID versie 4)
+                        genereert. Deze codes zijn essentieel voor het herkennen en onderscheiden van records binnen de
+                        database, zoals gebruikers, sessies of objecten. De UUID's worden gegenereerd op basis van
+                        cryptografisch veilige, willekeurige bytes, en vervolgens omgevormd tot een leesbaar formaat
+                        zoals xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx. Dit garandeert een hoge mate van uniekheid en
+                        betrouwbaarheid, zelfs binnen grootschalige of gedistribueerde systemen.
+                        <br><br>
+                        Samen zorgen deze twee onderdelen — de databaseverbinding en het gebruik van UUID’s — voor een
+                        robuuste technische structuur waarop het verdere systeem gebouwd is.
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-12 col-md-4 text-center">
+                <figure>
+                    <img src="./img/delete-qr-code.png" alt="Technische screenshot 2"
+                        class="img-fluid rounded shadow-sm" />
+                    <figcaption class="mt-2 " style="font-size: 0.9rem;">Deze PHP-code wordt gebruikt om een specifiek
+                        record uit een MySQL-database te verwijderen op basis van een meegegeven ID. Via een HTTP
+                        POST-verzoek wordt het ID opgehaald dat verwijst naar de QR-code die verwijderd moet worden.
+                        <br><br>
+                        Om dit veilig te doen, wordt gebruikgemaakt van een prepared statement, wat voorkomt dat
+                        kwaadwillende gebruikers via SQL-injectie het systeem kunnen manipuleren. De query verwijdert de
+                        rij uit de tabel wanne_qr-codes waar de opgegeven ID overeenkomt.
+                        <br><br>
+                        De verbinding met de database wordt opgezet via een extern bestand (dbh.php), en de
+                        verwijderactie wordt uitgevoerd met bind_param om het ID op een veilige manier aan de query te
+                        koppelen. Na de uitvoering wordt een lege response als JSON teruggegeven — dit kan dienen als
+                        bevestiging richting de frontend dat de operatie succesvol is verlopen.
+                        <br><br>
+                        Deze aanpak combineert veiligheid, eenvoud en efficiëntie en vormt een belangrijk onderdeel van
+                        de backend-functionaliteit voor het beheren van dynamische gegevens, zoals QR-codes.
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-12 col-md-4 text-center">
+                <figure>
+                    <img src="./img/document ready.png" alt="Technische screenshot 3"
+                        class="img-fluid rounded shadow-sm" />
+                    <figcaption class="mt-2 " style="font-size: 0.9rem;"></figcaption>Deze code maakt gebruik van jQuery
+                    en zorgt ervoor dat zodra de volledige webpagina is geladen ($(document).ready()), automatisch de
+                    functie get_content() wordt uitgevoerd. Dit betekent dat de pagina pas begint met het ophalen of
+                    tonen van dynamische inhoud nadat alle HTML-elementen volledig beschikbaar zijn in de browser.
+                    <br><br>
+                    De get_content()-functie (die elders in de code gedefinieerd is) wordt op dat moment aangeroepen,
+                    wat meestal wordt gebruikt om bijvoorbeeld data in te laden via AJAX, lijsten te vullen of live
+                    inhoud op te halen uit een database of API. Dit zorgt voor een soepele gebruikerservaring en
+                    voorkomt fouten door te garanderen dat alle elementen al bestaan op het moment dat ze aangesproken
+                    worden.
+                    <br><br>
+                    Deze aanpak is een standaardpraktijk in webontwikkeling met jQuery om interactieve inhoud op het
+                    juiste moment te initialiseren.
+
+                </figure>
+            </div>
+        </div>
+        <div class="row g-3">
+            <div class="col-12 col-md-4 text-center">
+                <figure>
+                    <img src="./img/edit-qr-code.png" alt="Technische screenshot 1"
+                        class="img-fluid rounded shadow-sm" />
+                    <figcaption class="mt-2 " style="font-size: 0.9rem;">
+                    </figcaption>
+                    Deze PHP-code verwerkt het toevoegen van nieuwe gegevens aan een MySQL-database, specifiek in de
+                    context van QR-codes die historische informatie bevatten. Zodra een formulier of verzoek gegevens
+                    doorstuurt via een POST-methode, worden de waarden voor titel, tijdperk, afbeelding en inhoud
+                    opgevangen.
+                    <br><br>
+                    Voor elk nieuw item wordt ook een unieke identificatiecode (UUID) gegenereerd met
+                    generate_uuid_v4(), zodat elk record een gegarandeerd unieke sleutel krijgt. Dit is bijzonder handig
+                    voor latere verwerking, zoals het ophalen, koppelen of verwijderen van specifieke QR-codes.
+                    <br><br>
+                    De gegevens worden vervolgens veilig ingevoegd in de database via een prepared statement, wat
+                    bescherming biedt tegen SQL-injectie. De query schrijft de informatie weg in de tabel
+                    wanne_qr-codes, waarbij alle velden netjes gescheiden worden ingevuld.
+                    <br><br>
+                    Na uitvoering wordt een lege JSON-response teruggestuurd, wat meestal door de frontend wordt
+                    opgepikt als bevestiging dat het item succesvol is opgeslagen. Deze methode zorgt voor een veilige
+                    en gestructureerde manier van gegevensbeheer in het project.
+                </figure>
+            </div>
+            <div class="col-12 col-md-4 text-center">
+                <figure>
+                    <img src="./img/get-content.png" alt="Technische screenshot 2"
+                        class="img-fluid rounded shadow mb-3" />
+                    <figcaption class="mt-2 " style="font-size: 0.95rem;">
+                        Deze PHP-code haalt alle opgeslagen QR-codegegevens op uit de database en zet ze om naar HTML
+                        die vervolgens
+                        dynamisch op een webpagina weergegeven kan worden. De gegevens worden gesorteerd op titel en
+                        weergegeven in
+                        een tabelvorm, waarbij elke rij informatie bevat over één specifieke QR-code.
+                        <br><br>
+                        De data wordt opgehaald uit de tabel wanne_qr-codes via een veilige <em>prepared statement</em>.
+                        Voor elke gevonden rij wordt HTML gegenereerd met de volgende elementen:
+                        <ul class="mt-2 mb-2">
+                            <li>Een linkknop om de bijhorende contentpagina te openen</li>
+                            <li>Een automatisch gegenereerde QR-code-afbeelding</li>
+                            <li>De titel, inhoud en het tijdperk van het item</li>
+                            <li>Een afbeelding die hoort bij het object of onderwerp</li>
+                            <li>Actieknoppen om het item te downloaden, bewerken, dupliceren of verwijderen</li>
+                        </ul>
+                        De HTML wordt vervolgens opgeslagen in een array genaamd $response en omgezet naar JSON-formaat
+                        via
+                        json_encode(). Op die manier kan de frontend (bijvoorbeeld met JavaScript of AJAX) deze data
+                        dynamisch inladen en weergeven.
+                        <br><br>
+                        Deze methode zorgt voor een soepele gebruikerservaring waarbij inhoud live wordt opgehaald
+                        zonder de volledige
+                        pagina te vernieuwen.
+                    </figcaption>
+                </figure>
+
+            </div>
+            <div class="col-12 col-md-4 text-center">
+                <figure>
+                    <img src="./img/text to speeche.png" alt="Technische screenshot 3"
+                        class="img-fluid rounded shadow-sm" />
+                    <figcaption class="mt-2" style="font-size: 0.9rem; line-height: 1.5;">
+                        Deze screenshot toont een JavaScript-implementatie van tekst-naar-spraakfunctionaliteit,
+                        speciaal ontwikkeld voor een interactieve en toegankelijke gebruikerservaring.
+                        De code maakt gebruik van de Web Speech API om de inhoud van een tekstvak voor
+                        te lezen in het Nederlands.
+                        Wat deze aanpak bijzonder maakt, is dat elk uitgesproken woord visueel wordt
+                        gemarkeerd tijdens het voorlezen. Dit wordt gerealiseerd door elk woord
+                        afzonderlijk in een &lt;span&gt; te plaatsen en tijdens het spreken dynamisch te
+                        highlighten via JavaScript.
+                        <br><br>
+                        Wanneer de functie startSpeech() wordt aangeroepen, wordt de oorspronkelijke tekst
+                        gesplitst, visueel klaargemaakt, en vervolgens voorgelezen.
+                        De functie zorgt ervoor dat vorige spraak direct wordt gestopt en dat er geen dubbele voorlezing
+                        ontstaat.
+                        Dankzij deze techniek is het systeem niet alleen auditief maar ook visueel toegankelijk – ideaal
+                        voor toepassingen zoals musea, waarbij informatie op een aantrekkelijke en inclusieve manier
+                        gepresenteerd wordt.
+                    </figcaption>
+                </figure>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="section">
+        <h2>📚 Wat hebben we geleerd?</h2>
+        <p>
+            Uit dit project heb ik niet alleen mijn kennis van PHP, JavaScript en MySQL kunnen verdiepen, maar ik heb
+            ook veel geleerd over het gebruik van API’s. Vooral het integreren van externe diensten via API’s was een
+            waardevolle ervaring die mijn inzicht in moderne webontwikkeling aanzienlijk heeft vergroot.
+            <br><br>
+            Daarnaast was de login-functionaliteit in dit project erg belangrijk. Het was cruciaal om ervoor te zorgen
+            dat alleen bevoegde gebruikers toegang kregen tot het systeem en data konden aanpassen. Zo waarborgden we de
+            veiligheid en integriteit van de informatie binnen de database.
+            <br><br>
+            Doordat het project draaide om het continu ophalen, aanpassen en opslaan van data, heb ik ook veel
+            praktische ervaring opgedaan met het werken met databases. Met name MySQL heb ik stap voor stap beter leren
+            beheersen. Het ontwikkelen van queries, het efficiënt beheren van data en het koppelen van de database aan
+            de webapplicatie zijn vaardigheden waar ik nu veel vertrouwen in heb gekregen.
+            <br><br>
+            Al met al heeft dit project mijn technische vaardigheden flink uitgebreid en mij ook inzicht gegeven in het
+            belang van veiligheid en data-integriteit binnen webapplicaties.
+        </p>
+
+
+    </section>
+
+
+    <section class="section">
+        <h2>✅ Besluit</h2>
+        <p>
+            Na enkele weken hard werken was het project uiteindelijk klaar. Tijdens Limburg Stemt Af konden we met trots
+            ons project presenteren. Hoewel het misschien kleiner was dan sommige andere projecten, waren we als klas
+            erg trots op wat we hadden bereikt.
+<br><br>
+            Alle functionaliteiten van de webapplicatie werkten naar behoren. Gebruikers kunnen werkstukken kopiëren,
+            downloaden, zoeken, aanpassen en verwijderen. Dankzij het uitgebreide onderzoek dat we deden, is het ons
+            zelfs gelukt om een tekst-naar-spraakfunctie toe te voegen. Niemand wist aanvankelijk hoe we dit moesten
+            aanpakken, maar samen als klas hebben we onze kennis gebundeld en uiteindelijk een passende oplossing
+            gevonden.
+<br><br>
+            We hopen dat dit project in de toekomst verder wordt ontwikkeld. Het zou mooi zijn als de leerlingen van
+            volgend jaar contact opnemen met het museum, zodat het webplatform daadwerkelijk gebruikt kan worden en zo
+            bijdraagt aan een aantrekkelijkere beleving van het museum.
+        </p>
+    </section>
+
+    <footer>
+        &copy; 2025 – Wanne Vlems | GIP Project online museum
+    </footer>
+
+</body>
+
+</html>
